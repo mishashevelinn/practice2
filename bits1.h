@@ -11,7 +11,7 @@
 //finds if given number is of form 2^x+1
 bool pow_of_2(unsigned int n) {
     unsigned int counter = n & 1;
-    for (int i = 0; i < 15; i++, counter += (n >> i & 1));
+    for (int i = 0; i < 31; i++, counter += (n >> i & 1));
     return counter == 2;
 }
 
