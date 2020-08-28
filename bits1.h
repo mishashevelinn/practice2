@@ -8,13 +8,14 @@
 #include <stdbool.h>
 #include <string.h>
 #include <malloc.h>
-
+//finds if given number is of form 2^x+1
 bool pow_of_2(unsigned int n) {
     unsigned int counter = n & 1;
     for (int i = 0; i < 15; i++, counter += (n >> i & 1));
     return counter == 2;
 }
 
+//finds the index of n-th occurance needile in haystack
 int sbstr_index(char *haystack, const char *needle, int n) {
     unsigned long postfix = strlen(needle);
     char *str_p = haystack;
@@ -26,7 +27,7 @@ int sbstr_index(char *haystack, const char *needle, int n) {
     }
     return str_p - haystack;
 }
-
+//changes an n-th occurance of needle in hystack by "insert" sequence
 char* substitute(char* haystack, char* needle, char* insert, int index){
     int head_size = sbstr_index(haystack, needle, index);
 
